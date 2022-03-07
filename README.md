@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![Qiita](https://lucid.app/documents/embeddedchart/7322ed76-81fb-4782-8b7f-332aa495a294?invitationId=inv_ced213b4-bc33-4c78-85dc-bf8ba464a039#　"キータ")
