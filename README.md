@@ -1,5 +1,3 @@
 # README
 
-!<div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embeddedchart/7322ed76-81fb-4782-8b7f-332aa495a294" id="mLGZbD1fusKy"></iframe></div>
-
-![Qiita](https://lucid.app/documents/embeddedchart/7322ed76-81fb-4782-8b7f-332aa495a294　"キータ")
+[![Image from Gyazo](https://i.gyazo.com/51e10666c2a805b5fa682f0425350e57.png)](https://gyazo.com/51e10666c2a805b5fa682f0425350e57)
