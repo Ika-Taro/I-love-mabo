@@ -1,0 +1,3 @@
+<%= form_with model: @item, url: items_path, local: true do |f| %>
+  <%= f.collection_select(:moto_id, Moto.all, :id, :name, {} ) %>
+<% end %>

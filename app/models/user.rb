@@ -18,4 +18,6 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
+
+  has_many :items
 end

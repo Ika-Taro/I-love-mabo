@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_061109) do
+ActiveRecord::Schema.define(version: 2022_03_08_092532) do
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "moto_id"
+    t.integer "touban_id"
+    t.integer "touchi_id"
+    t.integer "tenmen_id"
+    t.integer "soy_sauce_id"
+    t.integer "sake_id"
+    t.integer "soup_id"
+    t.integer "chili_pepper_id"
+    t.integer "oil_id"
+    t.integer "minced_meat_id"
+    t.integer "negi_id"
+    t.integer "tofu_id"
+    t.integer "garlic_id"
+    t.integer "ginger_id"
+    t.integer "huajiao_id"
+    t.text "explanatory_note"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
@@ -34,5 +58,6 @@ ActiveRecord::Schema.define(version: 2022_03_08_061109) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "items", "users"
   add_foreign_key "sns_credentials", "users"
 end
