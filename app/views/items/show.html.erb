@@ -95,5 +95,6 @@
   <%= @item.user.nickname %>
 
   <% if current_user.id == @item.user_id %>
+    <%= link_to '編集', edit_item_path(@item.id), method: :get %>
     <%= link_to '削除', "/items/#{@item.id}", method: :delete %>
   <% end %>

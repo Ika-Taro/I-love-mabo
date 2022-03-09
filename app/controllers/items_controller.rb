@@ -22,7 +22,17 @@ class ItemsController < ApplicationController
   end
 
   def show
+  end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -31,6 +41,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :moto_id, :touban_id, :touchi_id, :tenmen_id,
       :soy_sauce_id, :sake_id, :soup_id, :chili_pepper_id, :oil_id, :minced_meat_id,
