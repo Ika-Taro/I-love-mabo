@@ -1,5 +1,9 @@
 <%= form_with model: @item, url: items_path, local: true do |f| %>
 
+  <%= f.text_area :name, placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
+
+  <%= f.file_field :image %>
+
   <%= f.collection_select(:moto_id, Moto.all, :id, :name, {} ) %>
   <%= f.collection_select(:touban_id, Touban.all, :id, :name, {} ) %>
   <%= f.collection_select(:touchi_id, Touchi.all, :id, :name, {} ) %>
