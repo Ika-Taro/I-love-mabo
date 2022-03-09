@@ -17,7 +17,6 @@ class Item < ApplicationRecord
   belongs_to :huajiao
 
   validates :name, presence: true
-  # validates :moto_id, {numericality: true}
 
   belongs_to :user
   has_one_attached :image

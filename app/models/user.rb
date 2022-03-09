@@ -19,5 +19,7 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  validates :nickname, presence: true
+
   has_many :items
 end
