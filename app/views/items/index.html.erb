@@ -1,2 +1,17 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<% @items.each do |item| %>
+
+<%= link_to item_path(item.id) do %>
+  <% if item.image.blank?%>
+    <%=  image_tag "tofu.jpeg" %>
+    <% else %>
+    <%=  image_tag (item.image) %>
+  <% end %>
+<% end %>
+
+
+  <%= item.user.nickname %>
+  <%= l item.created_at %>
+
+
+<% end %>
+<%= link_to '新規投稿', new_item_path %>

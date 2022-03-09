@@ -22,7 +22,7 @@
   <%= f.collection_select(:ginger_id, Ginger.all, :id, :name, {} ) %>
   <%= f.collection_select(:huajiao_id, Huajiao.all, :id, :name, {} ) %>
 
-  <%= f.text_area :explanatory_note, placeholder:"こだわりを自由に記入してください", maxlength:"500" %>
+  <%= f.text_area :explanatory_note, placeholder:"こだわりを自由に記入してください", maxlength:"2000" %>
 
   <%= f.submit "出品する" %>
 <% end %>

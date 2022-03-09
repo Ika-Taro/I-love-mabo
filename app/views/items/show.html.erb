@@ -1,0 +1,99 @@
+<%= @item.name %>
+
+  <% if @item.image.blank?%>
+    <%=  image_tag "tofu.jpeg" %>
+    <% else %>
+    <%=  image_tag (@item.image) %>
+  <% end %>
+
+  <% if @item.moto.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.moto.name %>
+  <% end %>
+
+  <% if @item.touban.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.touban.name %>
+  <% end %>
+
+  <% if @item.tenmen.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.tenmen.name %>
+  <% end %>
+
+  <% if @item.soy_sauce.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.soy_sauce.name %>
+  <% end %>
+
+  <% if @item.sake.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.sake.name %>
+  <% end %>
+
+  <% if @item.soup.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.soup.name %>
+  <% end %>
+
+  <% if @item.chili_pepper.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.chili_pepper.name %>
+  <% end %>
+
+  <% if @item.oil.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.oil.name %>
+  <% end %>
+
+  <% if @item.minced_meat.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.minced_meat.name %>
+  <% end %>
+
+  <% if @item.negi.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.negi.name %>
+  <% end %>
+
+  <% if @item.tofu.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.tofu.name %>
+  <% end %>
+
+  <% if @item.garlic.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.garlic.name %>
+  <% end %>
+
+  <% if @item.ginger.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.ginger.name %>
+  <% end %>
+
+  <% if @item.huajiao.id == 1%>
+    <%= nil %>
+    <% else %>
+    <%=  @item.huajiao.name %>
+  <% end %>
+
+  <%= @item.explanatory_note %>
+
+  <%= @item.user.nickname %>
+
+  <% if current_user.id == @item.user_id %>
+    <%= link_to '削除', "/items/#{@item.id}", method: :delete %>
+  <% end %>
