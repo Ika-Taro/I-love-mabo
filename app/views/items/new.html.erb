@@ -1,0 +1,28 @@
+<%= form_with model: @item, url: items_path, local: true do |f| %>
+<%= render 'shared/error_messages', model: f.object %>
+
+
+  <%= f.text_area :name, placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
+
+  <%= f.file_field :image %>
+
+  <%= f.collection_select(:moto_id, Moto.all, :id, :name, {} ) %>
+  <%= f.collection_select(:touban_id, Touban.all, :id, :name, {} ) %>
+  <%= f.collection_select(:touchi_id, Touchi.all, :id, :name, {} ) %>
+  <%= f.collection_select(:tenmen_id, Tenmen.all, :id, :name, {} ) %>
+  <%= f.collection_select(:soy_sauce_id, SoySauce.all, :id, :name, {} ) %>
+  <%= f.collection_select(:sake_id, Sake.all, :id, :name, {} ) %>
+  <%= f.collection_select(:soup_id, Soup.all, :id, :name, {} ) %>
+  <%= f.collection_select(:chili_pepper_id, ChiliPepper.all, :id, :name, {} ) %>
+  <%= f.collection_select(:oil_id, Oil.all, :id, :name, {} ) %>
+  <%= f.collection_select(:minced_meat_id, MincedMeat.all, :id, :name, {} ) %>
+  <%= f.collection_select(:negi_id, Negi.all, :id, :name, {} ) %>
+  <%= f.collection_select(:tofu_id, Tofu.all, :id, :name, {} ) %>
+  <%= f.collection_select(:garlic_id, Garlic.all, :id, :name, {} ) %>
+  <%= f.collection_select(:ginger_id, Ginger.all, :id, :name, {} ) %>
+  <%= f.collection_select(:huajiao_id, Huajiao.all, :id, :name, {} ) %>
+
+  <%= f.text_area :explanatory_note, placeholder:"こだわりを自由に記入してください", maxlength:"2000" %>
+
+  <%= f.submit "出品する" %>
+<% end %>
