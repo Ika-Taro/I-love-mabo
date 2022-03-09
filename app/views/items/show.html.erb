@@ -98,3 +98,5 @@
     <%= link_to '編集', edit_item_path(@item.id), method: :get %>
     <%= link_to '削除', "/items/#{@item.id}", method: :delete %>
   <% end %>
+
+  <%= link_to 'もどる', root_path %>
