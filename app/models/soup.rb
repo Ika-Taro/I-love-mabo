@@ -1,15 +1,12 @@
 class Soup < ActiveHash::Base
   self.data = [
     { id: 1, name: '--' },
-    { id: 2, name: '経済' },
-    { id: 3, name: '政治' },
-    { id: 4, name: '地域' },
-    { id: 5, name: '国際' },
-    { id: 6, name: 'IT' },
-    { id: 7, name: 'エンタメ' },
-    { id: 8, name: 'スポーツ' },
-    { id: 9, name: 'グルメ' },
-    { id: 10, name: 'その他' }
+    { id: 2, name: 'なし' },
+    { id: 3, name: '水' },
+    { id: 4, name: '粉末鶏がらスープの素' },
+    { id: 5, name: 'ペースト状の中華スープの素' },
+    { id: 6, name: '毛湯(手作り)' },
+    { id: 7, name: 'その他' }
   ]
 
   include ActiveHash::Associations

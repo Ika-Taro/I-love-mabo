@@ -19,6 +19,7 @@ FactoryBot.define do
 
     explanatory_note    {'美味しいです'}
 
+
     association :user
     
   end
