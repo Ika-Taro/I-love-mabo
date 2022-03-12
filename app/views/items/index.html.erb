@@ -1,26 +1,36 @@
-<% @items.each do |item| %>
 
-<%= link_to item_path(item.id) do %>
-  <% if item.image.blank?%>
-    <%=  image_tag "tofu.jpeg" %>
-    <% else %>
-    <%=  image_tag (item.image) %>
+<div class="body">
+
+  <% @items.each do |item| %>
+
+  <%= link_to item_path(item.id) do %>
+    <% if item.image.blank?%>
+      <div class="img-thumbnail">
+        <%=  image_tag "tofu.jpeg" %>
+      </div>
+      <% else %>
+      <div class="img-thumbnail">
+        <%=  image_tag (item.image) %>
+      </div >
+    <% end %>
   <% end %>
-<% end %>
 
 
-  <%= item.user.nickname %>
-  <%= l item.created_at %>
+    <%= item.user.nickname %>
+    <%= l item.created_at %>
 
 
-<% end %>
+  <% end %>
 
-<%= link_to '新規投稿', new_item_path %>
+  <%= link_to '新規投稿', new_item_path %>
 
-<% if user_signed_in? %>
-  <%= link_to current_user.nickname %>
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to 'ログイン', new_user_session_path %>
-  <%= link_to '新規登録', new_user_registration_path %>
-<% end %>
+  <% if user_signed_in? %>
+    <%= link_to current_user.nickname %>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'ログイン', new_user_session_path %>
+    <%= link_to '新規登録', new_user_registration_path %>
+  <% end %>
+  <h1 class="text-success">Hello Bootstrap!</h1>
+
+</div>
