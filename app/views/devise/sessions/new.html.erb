@@ -1,42 +1,42 @@
-
-<div class="container text-center mt-5" >
-    <h1>Log in</h1>
-</div>
-
-<div class="container text-center position-absolute top-50 start-50 translate-middle">  
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="justify-content-center"> 
-      <div>
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
-      <div>
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
-      </div>
-    </div>
-
-      <div>
-        <% if devise_mapping.rememberable? %>
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-        <% end %>
-      </div>
-    
-
-    <div class="actions my-2">
-      <%= f.submit nil, class: 'btn btn-success btn-sm',value: "ログイン"%>
-    </div>
-
-    <div class="container my-2">
-      <button type="button" class="justify-content-center btn btn-outline-success btn-sm">
-        <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'password text-success'%>
-      </button>
-    </div>
-
-  <% end %>
-</div>
+<div class="full-page">
   
-    <div class="container text-center position-absolute bottom-0 start-50 translate-middle">
-      <%= render "devise/shared/links" %>
+  <div class="container text-center position-absolute top-50 start-50 translate-middle">
+    <div class="container text-center my-5" >
+        <h1>Love mabo?</h1>
     </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="justify-content-center">
+        <div class="container my-2">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="container my-2">
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+      </div>
+        <div>
+          <% if devise_mapping.rememberable? %>
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+          <% end %>
+        </div>
+  
+      <div class="actions my-2">
+        <%= f.submit nil, class: 'btn btn-secondary rounded-pill btn-sm data-bs-toggle="tooltip" data-bs-placement="top" title="I love mabo"',value: "ログイン"%>
+      </div>
+      <div class="container my-2">
+        <button type="button" class="justify-content-center btn btn-outline-secondary rounded-pill btn-sm">
+          <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post, class: 'password text-secondary'%>
+        </button>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="container text-center position-absolute bottom-0 start-50 translate-middle">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
+<script>
+  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  let tooltipList = tooltipTriggerList.map(function(tooltipTriggerElem){return new bootstrap.Tooltip(tooltipTriggerElem)});
+</script>
