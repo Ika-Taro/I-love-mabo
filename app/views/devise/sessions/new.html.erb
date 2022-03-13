@@ -7,12 +7,29 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="justify-content-center">
         <div class="container my-2">
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-6 form-floating">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control',id: 'floatingInput', placeholder: 'name@example.com' %>
+              <label for="floatingInput">メールアドレス</label>
+            </div>
+            <div class="col"></div>
+          </div>
         </div>
+      
+
         <div class="container my-2">
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <div class="row">
+            <div class="col"></div>
+            <div class="col-6 form-floating">
+              <%= f.password_field :password, autocomplete: "current-password",class: 'form-control',id: 'floatingPassword', placeholder: 'password' %>
+              <label for="floatingPassword">パスワード</label>
+            </div>
+            <div class="col"></div>
+          </div>
         </div>
       </div>
+
         <div>
           <% if devise_mapping.rememberable? %>
               <%= f.check_box :remember_me %>
@@ -21,7 +38,7 @@
         </div>
   
       <div class="actions my-2">
-        <%= f.submit nil, class: 'btn btn-secondary rounded-pill btn-sm data-bs-toggle="tooltip" data-bs-placement="top" title="I love mabo"',value: "ログイン"%>
+        <%= f.submit nil, class: 'btn btn-secondary rounded-pill btn-sm ',value: "ログイン"%>
       </div>
       <div class="container my-2">
         <button type="button" class="justify-content-center btn btn-outline-secondary rounded-pill btn-sm">
@@ -36,7 +53,3 @@
   </div>
 </div>
 
-<script>
-  let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-  let tooltipList = tooltipTriggerList.map(function(tooltipTriggerElem){return new bootstrap.Tooltip(tooltipTriggerElem)});
-</script>
