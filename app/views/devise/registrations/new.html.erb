@@ -13,8 +13,8 @@
         <div class="container my-2">
           <div class="row">
             <div class="col"></div>
-            <div class="col-6 form-floating">
-              <%= f.text_field :nickname, autofocus: true,class: 'form-control',id: 'floatingInput', placeholder: ''  %>
+            <div class="col-10 col-md-6 form-floating">
+              <%= f.text_field :nickname, autofocus: true,class: 'form-control',id: 'floatingInput', placeholder: 'ニックネーム'  %>
               <label for="floatingInput">ニックネーム</label>
             </div>
           <div class="col"></div>
@@ -26,13 +26,14 @@
         <div class="container my-2">
           <div class="row">
             <div class="col"></div>
-            <div class="col-6 form-floating">
-              <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control',id: 'floatingInput', placeholder: '' %>
+            <div class="col-10 col-md-6 form-floating">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control',id: 'floatingInput', placeholder: 'メールアドレス' %>
               <label for="floatingInput">メールアドレス</label>
             </div>
             <div class="col"></div>
           </div>
         </div>
+      </div>
     
       <%if @sns_id.present? %>
         <%= hidden_field_tag :sns_auth, true %>
@@ -41,9 +42,9 @@
           <%# <% @minimum_password_length %>
           <div class="row">
             <div class="col"></div>
-            <div class="col-6 form-floating">
-              <%= f.password_field :password, autocomplete: "new-password",class: 'form-control',id: 'floatingPassword', placeholder: ''%>
-              <label for="floatingPassword">パスワード(<%= @minimum_password_length %> characters minimum)</label>
+            <div class="col-10 col-md-6 form-floating">
+              <%= f.password_field :password, autocomplete: "new-password",class: 'form-control',id: 'floatingPassword', placeholder: 'パスワード'%>
+              <label for="floatingPassword">パスワード(<%= @minimum_password_length %>文字以上)</label>
             </div>
             <div class="col"></div>
           </div>
@@ -52,7 +53,7 @@
         <div class="container my-2">
           <div class="row">
             <div class="col"></div>
-            <div class="col-6 form-floating">
+            <div class="col-10 col-md-6 form-floating">
               <%= f.password_field :password_confirmation, autocomplete: "new-password",class: 'form-control',id: 'floatingPassword', placeholder: 'password'%>
               <label for="floatingPassword">パスワード(確認用)</label>
             </div>
