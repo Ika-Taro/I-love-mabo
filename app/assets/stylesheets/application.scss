@@ -1,20 +1,17 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Noto+Sans+JP:wght@100&family=Sawarabi+Mincho&display=swap');
 *{
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Josefin Sans','Noto Sans JP', sans-serif;
+  // font-family: 'Sawarabi Mincho', serif;
 }
+
+html,body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #f4f5f7;
+}
+.full-page {
+  height: 100%;
+  background: #f4f5f7;
+}
+
