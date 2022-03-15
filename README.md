@@ -65,4 +65,4 @@ https://docs.google.com/spreadsheets/d/14fuj2x-y6PtlkLbkuiICK0z-Y4g4Mm3FMnLOnJde
 
 ## 工夫したポイント
 
-準備中
+準備中です
