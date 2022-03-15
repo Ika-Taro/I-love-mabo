@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Noto+Sans+JP:wght@100&family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&family=Noto+Sans+JP:wght@500&family=Sawarabi+Mincho&display=swap');
 *{
   font-family: 'Josefin Sans','Noto Sans JP', sans-serif;
   // font-family: 'Sawarabi Mincho', serif;
@@ -10,7 +10,6 @@ html,body {
   background: #f4f5f7;
 }
 #splash {
-  /*fixedで全面に固定*/
 position: fixed;
 width: 100%;
 height: 100%;
@@ -18,10 +17,10 @@ z-index: 999;
 background:#333;
 text-align:center;
 color:#fff;
-display: none;
+// display: none;
 }
 
-/* Loading画像中央配置　*/
+
 #splash_logo {
 position: absolute;
 top: 50%;
@@ -29,7 +28,6 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-/* Loading アイコンの大きさ設定　*/
 #splash_logo img {
 width:40px;
 }
@@ -40,4 +38,63 @@ width:40px;
   background-size: cover;
   background-position: center center;
   background-image: url("https://i.gyazo.com/532be196d01be59856259a4686e713ba.jpg");
+}
+
+
+.card-img-overlay p{
+  position:absolute;
+  bottom:10px;
+  left:0;
+  z-index:80;
+  color:white;
+  padding:0 35px;
+}
+
+
+.card-img-overlay a:before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  bottom:0;
+  left:0;
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(100, 100, 100, .5) 100%);
+  transition:.5s;
+  z-index:70;
+}
+.card-img-overlay a:after {
+  content:"";
+			position:absolute;
+			width:100%;
+			height:100%;
+			bottom:0;
+			left:0;
+			z-index:100;
+}
+.card-img-overlay a:hover{
+  background: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(100, 100, 100, .9) 100%);
+}
+
+.flipLeft{
+  animation-name: flipLeft;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  perspective-origin: left center;
+  opacity: 0;
+  }
+  
+  @keyframes flipLeft{
+    from {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(30deg);
+    opacity: 0;
+    }
+  
+    to {
+    transform: perspective(600px) translate3d(0, 0, 0) rotateY(0deg);
+    opacity: 1;
+    }
+  }
+
+.mabo {
+  background-color: #2bb157;
 }
