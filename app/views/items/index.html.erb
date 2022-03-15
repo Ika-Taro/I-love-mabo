@@ -1,6 +1,5 @@
 	<div id="splash">
-		<div id="splash_logo">
-    Loading...</div>
+		<div id="splash_logo"></div>
 	</div>
 	<main>
     <div class="tofu"></div>
@@ -41,14 +40,13 @@
   </div>
 
 
-<%# <script>
-  //テキストのカウントアップの設定
-      var bar = new ProgressBar.Line(splash_logo, {//id名を指定
-  strokeWidth: 0,//進捗ゲージの太さ
-  duration: 1000,//時間指定(1000＝1秒)
-  trailWidth: 0,//線の太さ
-  text: {//テキストの形状を直接指定
-    style: {//天地中央に配置
+<script>//ローカル確認用
+      var bar = new ProgressBar.Line(splash_logo, {
+  strokeWidth: 0,
+  duration: 1000,
+  trailWidth: 0,
+  text: {
+    style: {
       position:'absolute',
       left:'50%',
       top:'50%',
@@ -58,48 +56,46 @@
       'font-size':'1.2rem',
       color:'#fff',
     },
-    autoStyleContainer: false //自動付与のスタイルを切る
+    autoStyleContainer: false 
   },
   step: function(state, bar) {
-    bar.setText(Math.round(bar.value() * 100) + ' %'); //テキストの数値
+    bar.setText(Math.round(bar.value() * 100) + ' %'); 
   }
       });
-  
-      //アニメーションスタート
-      bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画します
-  $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
+      bar.animate(1.0, function () {
+  $("#splash").delay(500).fadeOut(800);ト
       });
-</script> %>
+</script>
 
 
 
-<script>
-  var splash_text = $.cookie('accessdate'); //キーが入っていれば年月日を取得
-  var myD = new Date();//日付データを取得
-  var myYear = String(myD.getFullYear());//年
-  var myMonth = String(myD.getMonth() + 1);//月
-  var myDate = String(myD.getDate());//日
+<%# <script>//本番環境用
+  var splash_text = $.cookie('accessdate'); 
+  var myD = new Date();
+  var myYear = String(myD.getFullYear());
+  var myMonth = String(myD.getMonth() + 1);
+  var myDate = String(myD.getDate());
   
-  if (splash_text != myYear + myMonth + myDate) {//cookieデータとアクセスした日付を比較↓
-          $("#splash").css("display", "block");//１回目はローディングを表示
+  if (splash_text != myYear + myMonth + myDate) {
+          $("#splash").css("display", "block");
           setTimeout(function () {
-              $("#splash_logo").fadeIn(1000, function () {//1000ミリ秒（1秒）かけてロゴがフェードイン
+              $("#splash_logo").fadeIn(1000, function () {
                   setTimeout(function () {
-              $("#splash_logo").fadeOut(1000);//1000ミリ秒（1秒）かけてロゴがフェードアウト
-                  }, 1000);//1000ミリ秒（1秒）後に処理を実行
+              $("#splash_logo").fadeOut(1000);
+                  }, 1000);
           setTimeout(function () {
-              $("#splash").fadeOut(1000, function () {//1000ミリ秒（1秒）かけて画面がフェードアウト
+              $("#splash").fadeOut(1000, function () {
               var myD = new Date();
               var myYear = String(myD.getFullYear());
               var myMonth = String(myD.getMonth() + 1);
               var myDate = String(myD.getDate());
-              $.cookie('accessdate', myYear + myMonth + myDate); //accessdateキーで年月日を記録
+              $.cookie('accessdate', myYear + myMonth + myDate);
           });
-          }, 1700);//1700ミリ秒（1.7秒）後に処理を実行
+          }, 1700);
       });
-  }, 1000);//1000ミリ秒（1秒）後に処理を実行
+  }, 1000);
   }else {
-      $("#splash").css("display", "none");//同日2回目のアクセスでローディング画面非表示
+      $("#splash").css("display", "none");
   }
-</script>
+</script> %>
 

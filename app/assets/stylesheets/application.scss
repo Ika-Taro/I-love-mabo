@@ -10,7 +10,6 @@ html,body {
   background: #f4f5f7;
 }
 #splash {
-  /*fixedで全面に固定*/
 position: fixed;
 width: 100%;
 height: 100%;
@@ -18,10 +17,10 @@ z-index: 999;
 background:#333;
 text-align:center;
 color:#fff;
-display: none;
+// display: none;
 }
 
-/* Loading画像中央配置　*/
+
 #splash_logo {
 position: absolute;
 top: 50%;
@@ -29,7 +28,6 @@ left: 50%;
 transform: translate(-50%, -50%);
 }
 
-/* Loading アイコンの大きさ設定　*/
 #splash_logo img {
 width:40px;
 }
