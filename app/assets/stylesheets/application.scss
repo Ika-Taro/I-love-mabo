@@ -12,21 +12,32 @@ html,body {
 #splash {
   /*fixedで全面に固定*/
 position: fixed;
-z-index: 999;
 width: 100%;
 height: 100%;
+z-index: 999;
 background:#333;
-
 text-align:center;
 color:#fff;
+display: none;
 }
+
+/* Loading画像中央配置　*/
+#splash_logo {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+/* Loading アイコンの大きさ設定　*/
+#splash_logo img {
+width:40px;
+}
+
 .tofu {
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-image: url("https://i.gyazo.com/532be196d01be59856259a4686e713ba.jpg");
-}
-h1 {
-  color: red;
 }
