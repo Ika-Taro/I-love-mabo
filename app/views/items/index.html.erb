@@ -1,36 +1,104 @@
+	<div id="splash">
+		<div id="splash_logo"></div>
+	</div>
+	<main>
+    <div class="tofu"></div>
+	</main>
 
-<div class="full-page">
-
-  <% @items.each do |item| %>
-
-  <%= link_to item_path(item.id) do %>
-    <% if item.image.blank?%>
-      <div class="img-thumbnail">
-        <%=  image_tag "tofu.jpeg" %>
-      </div>
-      <% else %>
-      <div class="img-thumbnail">
-        <%=  image_tag (item.image) %>
-      </div >
+  <div class="full-page">
+    <% @items.each do |item| %>
+  
+    <%= link_to item_path(item.id) do %>
+      <% if item.image.blank?%>
+        <div class="img-thumbnail">
+          <%=  image_tag "tofu.jpeg" %>
+        </div>
+        <% else %>
+        <div class="img-thumbnail">
+          <%=  image_tag (item.image) %>
+        </div >
+      <% end %>
     <% end %>
-  <% end %>
+  
+  
+      <%= item.user.nickname %>
+      <%= l item.created_at %>
+  
+  
+    <% end %>
+  
+    <%= link_to '新規投稿', new_item_path %>
+  
+    <% if user_signed_in? %>
+      <%= link_to current_user.nickname %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path %>
+      <%= link_to '新規登録', new_user_registration_path %>
+    <% end %>
+  <h1>cssテスト赤色</h1>
+  </div>
 
 
-    <%= item.user.nickname %>
-    <%= l item.created_at %>
+<%# <script>
+  //テキストのカウントアップの設定
+      var bar = new ProgressBar.Line(splash_logo, {//id名を指定
+  strokeWidth: 0,//進捗ゲージの太さ
+  duration: 1000,//時間指定(1000＝1秒)
+  trailWidth: 0,//線の太さ
+  text: {//テキストの形状を直接指定
+    style: {//天地中央に配置
+      position:'absolute',
+      left:'50%',
+      top:'50%',
+      padding:'0',
+      margin:'0',
+      transform:'translate(-50%,-50%)',
+      'font-size':'1.2rem',
+      color:'#fff',
+    },
+    autoStyleContainer: false //自動付与のスタイルを切る
+  },
+  step: function(state, bar) {
+    bar.setText(Math.round(bar.value() * 100) + ' %'); //テキストの数値
+  }
+      });
+  
+      //アニメーションスタート
+      bar.animate(1.0, function () {//バーを描画する割合を指定します 1.0 なら100%まで描画します
+  $("#splash").delay(500).fadeOut(800);//アニメーションが終わったら#splashエリアをフェードアウト
+      });
+</script> %>
 
 
-  <% end %>
 
-  <%= link_to '新規投稿', new_item_path %>
+<script>
+  var splash_text = $.cookie('accessdate'); //キーが入っていれば年月日を取得
+  var myD = new Date();//日付データを取得
+  var myYear = String(myD.getFullYear());//年
+  var myMonth = String(myD.getMonth() + 1);//月
+  var myDate = String(myD.getDate());//日
+  
+  if (splash_text != myYear + myMonth + myDate) {//cookieデータとアクセスした日付を比較↓
+          $("#splash").css("display", "block");//１回目はローディングを表示
+          setTimeout(function () {
+              $("#splash_logo").fadeIn(1000, function () {//1000ミリ秒（1秒）かけてロゴがフェードイン
+                  setTimeout(function () {
+              $("#splash_logo").fadeOut(1000);//1000ミリ秒（1秒）かけてロゴがフェードアウト
+                  }, 1000);//1000ミリ秒（1秒）後に処理を実行
+          setTimeout(function () {
+              $("#splash").fadeOut(1000, function () {//1000ミリ秒（1秒）かけて画面がフェードアウト
+              var myD = new Date();
+              var myYear = String(myD.getFullYear());
+              var myMonth = String(myD.getMonth() + 1);
+              var myDate = String(myD.getDate());
+              $.cookie('accessdate', myYear + myMonth + myDate); //accessdateキーで年月日を記録
+          });
+          }, 1700);//1700ミリ秒（1.7秒）後に処理を実行
+      });
+  }, 1000);//1000ミリ秒（1秒）後に処理を実行
+  }else {
+      $("#splash").css("display", "none");//同日2回目のアクセスでローディング画面非表示
+  }
+</script>
 
-  <% if user_signed_in? %>
-    <%= link_to current_user.nickname %>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'ログイン', new_user_session_path %>
-    <%= link_to '新規登録', new_user_registration_path %>
-  <% end %>
-  <h1 class="text-success">Hello Bootstrap!</h1>
-
-</div>
