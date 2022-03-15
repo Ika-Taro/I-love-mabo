@@ -5,28 +5,36 @@
     <div class="tofu"></div>
 	</main>
 
-  <div class="full-page">
+<div class="container">
+  <div class="d-flex flex-wrap justify-content-center" >
+  
     <% @items.each do |item| %>
-  
-    <%= link_to item_path(item.id) do %>
-      <% if item.image.blank?%>
-        <div class="img-thumbnail">
-          <%=  image_tag "tofu.jpeg" %>
-        </div>
-        <% else %>
-        <div class="img-thumbnail">
-          <%=  image_tag (item.image) %>
-        </div >
-      <% end %>
+      <div>
+          <div class="card shadow">
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.blank?%>
+                <div>
+                  <%=  image_tag "tofu.jpeg", class: "card-image-top"%>
+                </div>
+                <% else %>
+                <div>
+                  <%=  image_tag (item.image), class: "card-image-top "%>
+                </div >
+              <% end %>
+            <% end %>
+              <div class="d-flex align-items-baseline card-img-overlay  ">
+                <p>
+                  <%= item.user.nickname %>
+                  <%= l item.created_at %>
+                </p>
+                <a href="#"></a>
+              </div>
+          </div>
+      </div>
     <% end %>
-  
-  
-      <%= item.user.nickname %>
-      <%= l item.created_at %>
-  
-  
-    <% end %>
-  
+  </div>
+</div>
+  <div>
     <%= link_to '新規投稿', new_item_path %>
   
     <% if user_signed_in? %>
@@ -36,7 +44,6 @@
       <%= link_to 'ログイン', new_user_session_path %>
       <%= link_to '新規登録', new_user_registration_path %>
     <% end %>
-  <h1>cssテスト赤色</h1>
   </div>
 
 
@@ -99,3 +106,23 @@
   }
 </script> %>
 
+<script>
+  function fadeAnime(){
+  // flipLeft
+  $('.card').each(function(){
+      var elemPos = $(this).offset().top;
+      var scroll = $(window).scrollTop();
+      var windowHeight = $(window).height();
+      if (scroll >= elemPos - windowHeight){
+          $(this).addClass('flipLeft');
+      }else{
+          $(this).removeClass('flipLeft');
+      }
+  });
+  }
+  
+  // 画面をスクロールをしたら動かしたい場合の記述
+    $(window).scroll(function (){
+      fadeAnime();/* アニメーション用の関数を呼ぶ*/
+    });// ここまで画面をスクロールをしたら動かしたい場合の記述
+</script>
