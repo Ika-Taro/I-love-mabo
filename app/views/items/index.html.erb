@@ -1,12 +1,30 @@
-	<div id="splash">
-		<div id="splash_logo"></div>
-	</div>
-	<main>
-    <div class="tofu"></div>
-	</main>
 
-<div class="container">
-  <div class="d-flex flex-wrap justify-content-center" >
+<div class="openbtn"><span></span><span></span><span></span></div>
+<nav id="g-nav">
+<div id="g-nav-list">
+<ul>
+<% if user_signed_in? %>
+  <li><%= link_to current_user.nickname %></li>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to 'ログイン', new_user_session_path %></li>
+  <li><%= link_to '新規登録', new_user_registration_path %></li>
+<% end %>
+<li><%= link_to '新規投稿', new_item_path %></li>	
+</ul>
+</div>
+</nav>
+
+
+
+<div id="splash">
+  <div id="splash_logo"></div>
+</div>
+<main>
+  <div class="tofu"></div>
+</main>
+
+  <div class="wrap row" >
   
     <% @items.each do |item| %>
       <div>
@@ -14,37 +32,27 @@
             <%= link_to item_path(item.id) do %>
               <% if item.image.blank?%>
                 <div>
-                  <%=  image_tag "tofu.jpg", class: "card-image-top", style: "max-width: 35rem;"%>
+                  <%=  image_tag "tofu.jpg", class: "card-image-top", style: "width: 100%;"%>
                 </div>
                 <% else %>
                 <div>
-                  <%=  image_tag (item.image), class: "card-image-top", style: "max-width: 35rem;"%>
+                  <%=  image_tag (item.image), class: "card-image-top", style: "width: 100%;"%>
                 </div >
               <% end %>
-            <% end %>
+            
               <div class="d-flex align-items-baseline card-img-overlay">
                 <p>
                   <%= item.user.nickname %>
                   <%= l item.created_at %>
                 </p>
-                <a href="#"></a>
+                <a href= "/items/<%= item.id %>"></a>
               </div>
+            <% end %>
           </div>
       </div>
     <% end %>
   </div>
-</div>
-  <div>
-    <%= link_to '新規投稿', new_item_path %>
-  
-    <% if user_signed_in? %>
-      <%= link_to current_user.nickname %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'ログイン', new_user_session_path %>
-      <%= link_to '新規登録', new_user_registration_path %>
-    <% end %>
-  </div>
+
 
 
 <script>//ローカル確認用
@@ -124,3 +132,45 @@
       fadeAnime();
     });
 </script>
+
+<script>//メニュー
+  $(".openbtn").click(function () {
+    $(this).toggleClass('active');
+      $("#g-nav").toggleClass('panelactive');
+  });
+  
+  $("#g-nav a").click(function () {
+      $(".openbtn").removeClass('active');
+      $("#g-nav").removeClass('panelactive');
+  });
+</script>
+
+<script>
+  $(function () {
+    var sp = 480; //SPのサイズを設定
+
+    function masonry_execute() {
+      var $wrap = $('.wrap');   //コンテナとなる要素を指定
+
+      if ( $('html').width() < sp ) { //ウィンドウ幅が480px以下だった場合、masonry破棄 (無効)
+        $wrap.masonry('destroy');
+      } else {                        //ウィンドウ幅が480px以上だった場合、masonry適応
+        $wrap.imagesLoaded(function(){
+          $wrap.masonry({
+            itemSelector: '.card',
+            percentPosition: true,
+            // columnWidth: 205,
+            // fitWidth: true,
+
+          });
+        });
+      }
+    }
+    masonry_execute(); //masonry_execute関数を実行
+
+    $(window).resize(function(){ //ウィンドウがリサイズされたら、再度masonry_execute関数を実行
+      masonry_execute();
+    });
+  });
+</script>
+
