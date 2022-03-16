@@ -14,15 +14,15 @@
             <%= link_to item_path(item.id) do %>
               <% if item.image.blank?%>
                 <div>
-                  <%=  image_tag "tofu.jpg", class: "card-image-top"%>
+                  <%=  image_tag "tofu.jpg", class: "card-image-top", style: "max-width: 35rem;"%>
                 </div>
                 <% else %>
                 <div>
-                  <%=  image_tag (item.image), class: "card-image-top "%>
+                  <%=  image_tag (item.image), class: "card-image-top", style: "max-width: 35rem;"%>
                 </div >
               <% end %>
             <% end %>
-              <div class="d-flex align-items-baseline card-img-overlay  ">
+              <div class="d-flex align-items-baseline card-img-overlay">
                 <p>
                   <%= item.user.nickname %>
                   <%= l item.created_at %>
@@ -74,8 +74,6 @@
       });
 </script>
 
-
-
 <%# <script>//本番環境用
   var splash_text = $.cookie('accessdate'); 
   var myD = new Date();
@@ -106,7 +104,7 @@
   }
 </script> %>
 
-<script>
+<script>//フリップアクション
   function fadeAnime(){
   // flipLeft
   $('.card').each(function(){
