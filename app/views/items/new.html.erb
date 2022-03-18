@@ -2,27 +2,156 @@
 <%= render 'shared/error_messages', model: f.object %>
 
 
-  <%= f.text_area :name, placeholder:"作品名（必須 40文字まで)", maxlength:"40" %>
 
-  <%= f.file_field :image %>
+  <div class="card">
+    <% if @item.image.present? %>
+      <%= image_tag @item.image, id: :img_prev %>
+    <% else %>
+      <%= image_tag "tofu.jpg", id: :img_prev %>
+    <% end %>
+    <%= f.file_field nil,class: 'btn btn-secondary', id: :user_img%>
+  </div>
+  <div class="container" >
 
-  <%= f.collection_select(:moto_id, Moto.all, :id, :name, {} ) %>
-  <%= f.collection_select(:touban_id, Touban.all, :id, :name, {} ) %>
-  <%= f.collection_select(:touchi_id, Touchi.all, :id, :name, {} ) %>
-  <%= f.collection_select(:tenmen_id, Tenmen.all, :id, :name, {} ) %>
-  <%= f.collection_select(:soy_sauce_id, SoySauce.all, :id, :name, {} ) %>
-  <%= f.collection_select(:sake_id, Sake.all, :id, :name, {} ) %>
-  <%= f.collection_select(:soup_id, Soup.all, :id, :name, {} ) %>
-  <%= f.collection_select(:chili_pepper_id, ChiliPepper.all, :id, :name, {} ) %>
-  <%= f.collection_select(:oil_id, Oil.all, :id, :name, {} ) %>
-  <%= f.collection_select(:minced_meat_id, MincedMeat.all, :id, :name, {} ) %>
-  <%= f.collection_select(:negi_id, Negi.all, :id, :name, {} ) %>
-  <%= f.collection_select(:tofu_id, Tofu.all, :id, :name, {} ) %>
-  <%= f.collection_select(:garlic_id, Garlic.all, :id, :name, {} ) %>
-  <%= f.collection_select(:ginger_id, Ginger.all, :id, :name, {} ) %>
-  <%= f.collection_select(:huajiao_id, Huajiao.all, :id, :name, {} ) %>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+        <span class="input-group-text justify-content-center moji fs-3 w-25 ">名</span>
+        <%= f.text_area :name, placeholder:"作品名", maxlength:"40", class: "w-75" %>
+      </div>
+      <div class="col"></div>
+    </div>
 
-  <%= f.text_area :explanatory_note, placeholder:"こだわりを自由に記入してください", maxlength:"2000" %>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+          <span class="input-group-text justify-content-center moji fs-3 w-25">素</span>
+          <%= f.collection_select(:moto_id, Moto.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
 
-  <%= f.submit "出品する" %>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">醬</span>
+      <%= f.collection_select(:touban_id, Touban.all, :id, :name, {}, class: "w-25" ) %>
+      <%= f.collection_select(:touchi_id, Touchi.all, :id, :name, {}, class: "w-25" ) %>
+      <%= f.collection_select(:tenmen_id, Tenmen.all, :id, :name, {}, class: "w-25" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">醤油</span>
+      <%= f.collection_select(:soy_sauce_id, SoySauce.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group ">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">酒</span>
+      <%= f.collection_select(:sake_id, Sake.all, :id, :name, {}, class: "input w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">湯</span>
+      <%= f.collection_select(:soup_id, Soup.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">辛</span>
+      <%= f.collection_select(:chili_pepper_id, ChiliPepper.all, :id, :name, {}, class: "w-50" ) %>
+      <%= f.collection_select(:huajiao_id, Huajiao.all, :id, :name, {}, class: "w-25" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">油</span>
+      <%= f.collection_select(:oil_id, Oil.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">肉</span>
+      <%= f.collection_select(:minced_meat_id, MincedMeat.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">豆腐</span>
+      <%= f.collection_select(:tofu_id, Tofu.all, :id, :name, {}, class: "w-75" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group">
+      <span class="input-group-text justify-content-center moji fs-3 w-25">香</span>
+      <%= f.collection_select(:negi_id, Negi.all, :id, :name, {}, class: "w-25" ) %>
+      <%= f.collection_select(:garlic_id, Garlic.all, :id, :name, {}, class: "w-25" ) %>
+      <%= f.collection_select(:ginger_id, Ginger.all, :id, :name, {}, class: "w-25" ) %>
+      </div>
+      <div class="col"></div>
+    </div>
+
+    <div class="row" style="height: 300px">
+      <div class="col"></div>
+      <div class="col-10 justify-content-center input-group h-100">
+      <span class="input-group-text justify-content-center moji fs-1 w-25">想</span>
+      <%= f.text_area :explanatory_note, placeholder:"こだわりを自由に記入してください", maxlength:"2000", class: "w-75" %>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
+
+  <div class container>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col-8 m-4">
+        <%= f.submit nil, class: 'btn btn-secondary rounded-pill w-100',value: "投稿" %>
+      </div>
+      <div class="col"></div>
+    </div>
+  </div>
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#img_prev').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#user_img").change(function(){
+        readURL(this);
+    });
+  });
+</script>
