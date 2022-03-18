@@ -1,6 +1,6 @@
 class MincedMeat < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '# 挽肉を選択(任意)' },
     { id: 2, name: 'なし' },
     { id: 3, name: '豚挽肉' },
     { id: 4, name: '牛・豚合挽肉' },
