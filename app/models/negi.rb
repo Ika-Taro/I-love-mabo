@@ -1,6 +1,6 @@
 class Negi < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '# ねぎを選択(任意)' },
     { id: 2, name: 'なし' },
     { id: 3, name: '白ネギ' },
     { id: 4, name: '葉ネギ' },

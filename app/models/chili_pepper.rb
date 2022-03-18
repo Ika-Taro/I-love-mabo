@@ -1,6 +1,6 @@
 class ChiliPepper < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '# 唐辛子を選択(任意)' },
     { id: 2, name: 'なし' },
     { id: 3, name: '鷹の爪' },
     { id: 4, name: '朝天唐辛子' },

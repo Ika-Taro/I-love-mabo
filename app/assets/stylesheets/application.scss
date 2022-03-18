@@ -219,5 +219,31 @@ background: #f4f5f7;
   .moji {
   font-family: 'Yuji Boku', serif;
   }
+
+  .image_form{
+    display: none;
+  }
 }
 
+.items.edit {
+  .moji {
+  font-family: 'Yuji Boku', serif;
+  }
+
+  .image_form{
+    display: none;
+  }
+}
+
+.floating {
+  right: 8px;
+  bottom: 8px;
+  position: fixed;
+  z-index: 1;
+}
+  
+.smalltext {
+  font-size: 15px ;
+  font-family: 'Yuji Boku', serif;
+
+}

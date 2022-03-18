@@ -1,6 +1,6 @@
 class Moto < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '# 麻婆豆腐の素を選択(任意)' },
     { id: 2, name: 'なし' },
     { id: 3, name: '丸美屋 麻婆豆腐の素シリーズ' },
     { id: 4, name: '丸美屋 贅を味わう 麻婆豆腐の素シリーズ' },

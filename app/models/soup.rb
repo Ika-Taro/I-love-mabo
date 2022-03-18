@@ -1,6 +1,6 @@
 class Soup < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: '# スープを選択(任意)' },
     { id: 2, name: 'なし' },
     { id: 3, name: '水' },
     { id: 4, name: '粉末鶏がらスープの素' },
