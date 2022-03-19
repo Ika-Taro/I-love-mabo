@@ -1,7 +1,7 @@
 
 <div class="openbtn"><span></span><span></span><span></span></div>
 <nav id="g-nav">
-<div id="g-nav-list">
+  <div id="g-nav-list">
 <ul>
 <% if user_signed_in? %>
   <li><%= link_to current_user.nickname %></li>
@@ -18,7 +18,7 @@
 
 
 <div id="splash">
-  <div id="splash_logo"></div>
+  <div id="splash_logo">I love mabo</div>
 </div>
 <main>
   <div class="tofu"></div>
@@ -61,7 +61,7 @@
 
 
 
-<script>//ローカル確認用
+<%# <script>//ローカル確認用
       var bar = new ProgressBar.Line(splash_logo, {
   strokeWidth: 0,
   duration: 1000,
@@ -86,9 +86,9 @@
       bar.animate(1.0, function () {
   $("#splash").delay(500).fadeOut(800);ト
       });
-</script>
+</script> %>
 
-<%# <script>//本番環境用
+<script>//本番環境用
   var splash_text = $.cookie('accessdate'); 
   var myD = new Date();
   var myYear = String(myD.getFullYear());
@@ -116,7 +116,7 @@
   }else {
       $("#splash").css("display", "none");
   }
-</script> %>
+</script>
 
 <script>//フリップアクション
   function fadeAnime(){
