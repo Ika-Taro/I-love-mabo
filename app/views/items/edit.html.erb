@@ -10,7 +10,7 @@
         <% if @item.image.present? %>
           <%= image_tag @item.image, id: :img_prev %>
         <% else %>
-          <%= image_tag "tofu.jpg", id: :img_prev %>
+          <%= image_tag "tofu.jpg", id: :img_prev, class: "w-100" %>
         <% end %>
         <label class="justify-content-center btn btn-secondary">
           <%= f.file_field :image , class: 'image_form', id: :user_img%>画像ファイルを選択
