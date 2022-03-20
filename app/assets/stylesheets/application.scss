@@ -3,12 +3,17 @@
   // font-family: 'Sawarabi Mincho', serif;
 }
 
-
-html,body {
+body {
 margin: 0;
 padding: 0;
-height: 100%;
-background: #f4f5f7;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-image: url(./Burning.gif);
+}
+
+.full-page {
+  height: 100vh;
 }
 
 .items.index {
@@ -115,6 +120,9 @@ background: #f4f5f7;
       margin: 0 auto;
     }
   }
+  .small07 {
+    font-size: 0.7rem;
+  }
 }
 //投稿画面
 .items.new {
@@ -140,10 +148,13 @@ background: #f4f5f7;
 .items.show {
   .card {
     position: relative;
+    background:rgba(100, 100, 100, .5)
   }
   
   .card img {
-    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
   }
   
   .cardtext {
@@ -164,7 +175,18 @@ background: #f4f5f7;
   .cardtext h1  {
     font-family: 'Yuji Boku', serif;
   }
+  @media screen and (max-width:480px) {
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .cardtext {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
 }
+
 
 .floating {
   right: 8px;

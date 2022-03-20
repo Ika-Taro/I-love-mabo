@@ -1,142 +1,146 @@
-
-<div class="card d-flex h-100">
-  <% if @item.image.blank?%>
-    <%=  image_tag "tofu.jpeg" %>
-    <% else %>
-    <%=  image_tag (@item.image) %>
+<div class="full-page">
+  
+  <div class="card d-flex h-100">
+    <% if @item.image.blank?%>
+      <%=  image_tag "tofu.jpeg" %>
+      <% else %>
+      <%=  image_tag (@item.image) %>
+    <% end %>
+  
+  
+  
+    <div class="container">
+      <div class="col-sm-8 cardtext">
+        <h1>
+          <%= @item.name %>
+        </h1>
+        <div>
+          <% if @item.moto.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.moto.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.touban.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.touban.name %></span>
+          <% end %>
+          <% if @item.tenmen.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.tenmen.name %></span>
+          <% end %>
+          <% if @item.touchi.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.touchi.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.soy_sauce.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.soy_sauce.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.sake.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.sake.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.soup.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.soup.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.chili_pepper.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.chili_pepper.name %></span>
+          <% end %>
+          <% if @item.huajiao.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.huajiao.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.oil.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.oil.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.minced_meat.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.minced_meat.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.tofu.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.tofu.name %></span>
+          <% end %>
+        </div>
+        <div>
+          <% if @item.negi.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.negi.name %></span>
+          <% end %>
+          <% if @item.garlic.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.garlic.name %></span>
+          <% end %>
+          <% if @item.ginger.id == 1%>
+            <%= nil %>
+            <% else %>
+            <span>#<%=  @item.ginger.name %></span>
+          <% end %>
+        </div>
+        <h1>想</h1>
+        <div class="smalltext">
+          <%= @item.explanatory_note %>
+        </div>
+        <%= @item.user.nickname %>
+      </div>
+      </div>
+    </div>
+  
+  
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+  <div id="g-nav-list">
+  <ul>
+  <% if user_signed_in? %>
+    <% if current_user.id == @item.user_id %>
+      <li><%= link_to '編集', edit_item_path(@item.id), method: :get %></li>
+      <li><%= link_to '削除', "/items/#{@item.id}", method: :delete %></li>
+    <% end %>
   <% end %>
-
-
-      
-  <div class="cardtext">
-    <h1>
-      <%= @item.name %>
-    </h1>
-    <div>
-      <% if @item.moto.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.moto.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.touban.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.touban.name %></span>
-      <% end %>
-      <% if @item.tenmen.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.tenmen.name %></span>
-      <% end %>
-      <% if @item.touchi.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.touchi.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.soy_sauce.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.soy_sauce.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.sake.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.sake.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.soup.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.soup.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.chili_pepper.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.chili_pepper.name %></span>
-      <% end %>
-      <% if @item.huajiao.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.huajiao.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.oil.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.oil.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.minced_meat.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.minced_meat.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.tofu.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.tofu.name %></span>
-      <% end %>
-    </div>
-    <div>
-      <% if @item.negi.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.negi.name %></span>
-      <% end %>
-      <% if @item.garlic.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.garlic.name %></span>
-      <% end %>
-      <% if @item.ginger.id == 1%>
-        <%= nil %>
-        <% else %>
-        <span>#<%=  @item.ginger.name %></span>
-      <% end %>
-    </div>
-    <h1>想</h1>
-    <div class="smalltext">
-      <%= @item.explanatory_note %>
-    </div>
-    <%= @item.user.nickname %>
+  </ul>
   </div>
+  </nav>
+  
+  <a class="floating btn btn-secondary btn-lg m-2" href="/" role="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-door-open justify-content-center" viewBox="0 0 16 16">
+      <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+      <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+    </svg><br>
+    exit
+  </a>
 </div>
-
-
-<div class="openbtn"><span></span><span></span><span></span></div>
-<nav id="g-nav">
-<div id="g-nav-list">
-<ul>
-<% if user_signed_in? %>
-  <% if current_user.id == @item.user_id %>
-    <li><%= link_to '編集', edit_item_path(@item.id), method: :get %></li>
-    <li><%= link_to '削除', "/items/#{@item.id}", method: :delete %></li>
-  <% end %>
-<% end %>
-</ul>
-</div>
-</nav>
-
-<a class="floating btn btn-secondary btn-lg m-2" href="/items/<%= @item.id %>" role="button">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-door-open justify-content-center" viewBox="0 0 16 16">
-    <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
-    <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
-  </svg><br>
-  exit
-</a>
 
 
 <script>//メニュー
