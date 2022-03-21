@@ -9,7 +9,15 @@ padding: 0;
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center center;
-background-image: url(./Burning.gif);
+
+background-image: url(./back-china.jpg);
+}
+
+.sessions {
+  background-image: url(./Burning.gif);
+}
+.registrations {
+  background-image: url(./Burning.gif);
 }
 
 .full-page {
@@ -298,4 +306,3 @@ opacity: 0;
   transform: translateY(-6px) rotate(45deg);
   width: 30%;
 }
-

@@ -10,7 +10,6 @@
   <li><%= link_to 'ログイン', new_user_session_path %></li>
   <li><%= link_to '新規登録', new_user_registration_path %></li>
 <% end %>
-<li><%= link_to '新規投稿', new_item_path %></li>	
 </ul>
 </div>
 </nav>
@@ -135,7 +134,7 @@
           $wrap.masonry({
             itemSelector: '.card',
             percentPosition: true,
-
+            fitWidth: true
           });
         });
       }
