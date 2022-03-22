@@ -23,32 +23,33 @@
   <div class="tofu"></div>
 </main>
 
-<div class="wrap row" >
-
-  <% @items.each do |item| %>
-    <div>
-        <div class="card shadow">
-          <%= link_to item_path(item.id) do %>
-            <% if item.image.blank?%>
-              <div>
-                <%=  image_tag "tofu.jpg", class: "card-image-top", style: "width: 100%;"%>
+<div class="container-fluid">
+  <div class="wrap row" >
+    <% @items.each do |item| %>
+      <div>
+          <div class="card shadow col-sm-4">
+            <%= link_to item_path(item.id) do %>
+              <% if item.image.blank?%>
+                <div>
+                  <%=  image_tag "tofu.jpg", class: "card-image-top", style: "width: 100%;"%>
+                </div>
+                <% else %>
+                <div>
+                  <%=  image_tag (item.image), class: "card-image-top", style: "width: 100%;"%>
+                </div >
+              <% end %>
+  
+              <div class="d-flex align-items-baseline card-img-overlay">
+                <p>
+                  <span><%= item.user.nickname %></span><span class="small07 mx-1"><%= l item.created_at %></span>
+                </p>
+                <a href= "/items/<%= item.id %>"></a>
               </div>
-              <% else %>
-              <div>
-                <%=  image_tag (item.image), class: "card-image-top", style: "width: 100%;"%>
-              </div >
             <% end %>
-          
-            <div class="d-flex align-items-baseline card-img-overlay">
-              <p>
-                <span><%= item.user.nickname %></span><span class="small07 mx-1"><%= l item.created_at %></span>
-              </p>
-              <a href= "/items/<%= item.id %>"></a>
-            </div>
-          <% end %>
-        </div>
-    </div>
-  <% end %>
+          </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <a class="floating btn btn-danger btn-lg m-2" href="/items/new" role="button">
