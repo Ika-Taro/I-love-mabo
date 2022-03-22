@@ -24,10 +24,9 @@
 </main>
 
 <div class="container-fluid">
-  <div class="wrap row" >
+  <div class="row wrap" >
     <% @items.each do |item| %>
-      <div>
-          <div class="card shadow col-sm-4">
+          <div class="col-sm-4 card">
             <%= link_to item_path(item.id) do %>
               <% if item.image.blank?%>
                 <div>
@@ -47,7 +46,6 @@
               </div>
             <% end %>
           </div>
-      </div>
     <% end %>
   </div>
 </div>
