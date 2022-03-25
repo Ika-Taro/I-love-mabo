@@ -50,12 +50,43 @@ background-image: url(./back-china.jpg);
   }
 
   .tofu {
+    position: relative;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-image: url("https://i.gyazo.com/532be196d01be59856259a4686e713ba.jpg");
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center center;
+    // background-image: url('camera.jpg');
+    // url("https://i.gyazo.com/532be196d01be59856259a4686e713ba.jpg");
   }
+
+
+#video {
+    /*天地中央配置*/
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    /*縦横幅指定*/
+    width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+    height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+    min-height: 100%;
+    min-width: 100%;
+}
+
+h1{
+    position:absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    color:#fff;
+    text-shadow: 0 0 15px #666;
+    font-family: 'Yuji Boku', serif;
+    font-size: 20vw;
+    width: 80%;
+}
 
 
   .card-img-overlay p{
@@ -274,7 +305,7 @@ cursor: pointer;
   left: 14px;
   height: 3px;
   border-radius: 2px;
-background-color: #666;
+  background-color: #666;
   width: 45%;
 }
 
