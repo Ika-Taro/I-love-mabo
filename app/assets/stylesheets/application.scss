@@ -222,6 +222,34 @@ background-image: url(./back-china.jpg);
   }
 }
 
+.infos.index {
+  background-image: none;
+  background-color: black;
+  color: white;
+
+  .container {
+    text-align: center;
+  }
+  h2 {
+    margin: 5em 0;
+  } 
+  h1 {
+    margin: 3em 0;
+  }
+  h3 {
+    margin: 2em 0;
+  }
+  .last {
+    margin: 8em 0;
+  }
+  @media screen and (max-width:480px) {
+    p {font-size: 0.7rem;}
+    h1 {font-size: 1.75rem;}
+    h2 {font-size: 1.4rem;}
+    h3 {font-size: 1.2rem;}
+  }
+
+}
 
 .floating {
   right: 8px;
