@@ -1,18 +1,19 @@
 
 <div class="openbtn"><span></span><span></span><span></span></div>
-<nav id="g-nav">
-  <div id="g-nav-list">
-<ul>
-<% if user_signed_in? %>
-  <li><%= link_to current_user.nickname %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-<% else %>
-  <li><%= link_to 'ログイン', new_user_session_path %></li>
-  <li><%= link_to '新規登録', new_user_registration_path %></li>
-<% end %>
-</ul>
-</div>
-</nav>
+  <nav id="g-nav">
+    <div id="g-nav-list">
+      <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+<div>
 
 <div id="splash">
   <div id="splash_logo">loading...</div>
@@ -32,7 +33,7 @@
             <%= link_to item_path(item.id) do %>
               <% if item.image.blank?%>
                 <div>
-                  <%=  image_tag "tofu.jpg", class: "card-image-top", style: "width: 100%;"%>
+                  <%=  image_tag "camera.jpg", class: "card-image-top", style: "width: 100%;"%>
                 </div>
                 <% else %>
                 <div>
